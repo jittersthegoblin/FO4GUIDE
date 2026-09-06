@@ -2,6 +2,7 @@ const BUILD_KEY='fo4guide-build-planner-v1';
 const statOrder=['S','P','E','C','I','A','L'];
 const tierRank={optional:1,strong:2,core:3};
 const tierLabel={core:'CORE',strong:'STRONG',optional:'OPTIONAL'};
+const baselineWeights={S:1.2,P:1.4,E:2.2,C:1.2,I:2.2,A:1.4,L:1.4};
 
 const perkIndex={};
 Object.entries(specialTree).forEach(([stat,data])=>data.perks.forEach(([name,req])=>{perkIndex[name]={name,stat,req}}));
@@ -25,7 +26,7 @@ function toggleTag(id){
 function clearTags(){selectedTags.clear();saveBuildTags();renderPlanner()}
 
 function aggregateBuild(){
-  const weights=Object.fromEntries(statOrder.map(s=>[s,0]));
+  const weights={...baselineWeights};
   const perks=new Map();
   const selected=buildTags.filter(t=>selectedTags.has(t.id));
   selected.forEach(tag=>{
@@ -49,7 +50,8 @@ function longTermTargets(build){
     if(p.tier!=='optional')target[p.stat]=Math.max(target[p.stat],p.req);
   });
   statOrder.forEach(s=>{
-    const weightTarget=Math.min(10,Math.max(1,Math.round(build.weights[s]/1.5)));
+    const playstyleWeight=Math.max(0,build.weights[s]-baselineWeights[s]);
+    const weightTarget=Math.min(10,Math.max(1,Math.round(playstyleWeight/1.5)));
     target[s]=Math.max(target[s],weightTarget);
   });
   return target;
@@ -69,7 +71,6 @@ function startingSpread(build){
       build.perks.forEach(p=>{if(p.stat===s&&p.req===next)score+=unlockValue[p.tier]||0});
       if(next<=target[s])score+=3;
       if(current[s]>=target[s])score*=0.45;
-      // Deterministic tie-breaker favors earlier SPECIAL order only very slightly.
       score+=((7-statOrder.indexOf(s))*0.0001);
       if(score>bestScore){bestScore=score;best=s}
     });
@@ -121,7 +122,7 @@ function renderSpecial(build){
   const start=startingSpread(build),target=longTermTargets(build),maxWeight=Math.max(...Object.values(build.weights),1);
   const total=statOrder.reduce((n,s)=>n+start[s],0);
   const head=document.createElement('div');head.className='special-summary-head';
-  head.innerHTML='<div><h3>Suggested starting SPECIAL</h3><p>This is a legal '+total+'-point starting spread, weighted toward the tags you picked.</p></div><span class="pill">28 points</span>';
+  head.innerHTML='<div><h3>Suggested starting SPECIAL</h3><p>This is a legal '+total+'-point starting spread, weighted toward the tags you picked without starving every unselected stat.</p></div><span class="pill">28 points</span>';
   host.appendChild(head);
   const grid=document.createElement('div');grid.className='special-grid';
   statOrder.forEach(s=>{
