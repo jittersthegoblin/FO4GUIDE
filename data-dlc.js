@@ -8,7 +8,7 @@ const dlcQuestGroups=[
     ['dlc_auto_rogue','Rogue Robot','Radiant','Repeatable post-story robot-hunting assignment.'],
     ['dlc_auto_recon','Robotic Reconnaissance','Radiant / Misc','A small repeatable Automatron reconnaissance activity listed by Prima.']
   ]},
-  {dlc:'Far Harbor',intro:'Prima separates the Island into Main, Far Harbor Side, Nucleus, Acadia, and faction-linked quests.',quests:[
+  {dlc:'Far Harbor',intro:'Prima separates the Island into Main, Far Harbor Side, Radiant, Nucleus, Acadia, companion and faction-linked quests.',quests:[
     ['dlc_fh_farhome','Far from Home','Main','Investigate the Nakano family’s missing daughter and travel to the Island.'],
     ['dlc_fh_walk','Walk in the Park','Main','Travel with Old Longfellow toward Acadia and learn how the fog changes exploration.'],
     ['dlc_fh_belong','Where You Belong','Main','Investigate Acadia and Kasumi’s reasons for coming to the Island.'],
@@ -30,7 +30,13 @@ const dlcQuestGroups=[
     ['dlc_fh_hull3','Hull Breach 3','Side','Finish the Mariner’s sequence of defense jobs.'],
     ['dlc_fh_hold','The Hold Out','Side','Help defend a threatened Island settlement.'],
     ['dlc_fh_fog','Turn Back the Fog','Side','Help establish another foothold against the fog.'],
-    ['dlc_fh_hunt','The Great Hunt','Side','Join a dangerous Far Harbor hunt.'],
+    ['dlc_fh_hunt','The Great Hunt','Side','Join the Mariner on the hunt for the legendary Red Death.'],
+    ['dlc_fh_shipbreaker','Shipbreaker','Side Companion','Old Longfellow’s companion quest; Prima ties completion plus maximum affinity to Hunter’s Wisdom.'],
+
+    ['dlc_fh_condensers','Condensers Down','Radiant','Defend an Island settlement while its fog condensers are repaired.'],
+    ['dlc_fh_catch','Deadliest Catch','Radiant','Help a settler hunt a giant hermit crab.'],
+    ['dlc_fh_supermutants','Super Mutants in the Fog','Radiant','Help a settler assault a super mutant stronghold.'],
+    ['dlc_fh_trappers','Trapper Attack','Radiant','Help a settler assault a Trapper stronghold.'],
 
     ['dlc_fh_visions','Visions in the Fog','Nucleus','Complete the Children of Atom initiation and gain peaceful access to the Nucleus.'],
     ['dlc_fh_atom','What Atom Requires','Nucleus hub','Help members of the Nucleus congregation.'],
