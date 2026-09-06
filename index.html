@@ -9,14 +9,14 @@
 <body>
 <div class="wrap">
 <header class="box hero">
-<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, companion quests, warnings, timed jobs, and weapon help.</p></div>
-<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>independent side quests always visible</li><li>faction jobs adapt to your choice</li><li>checkmarks saved in your browser</li></ul></div>
+<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, companions, warnings, timed jobs, and weapon help.</p></div>
+<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>independent side quests always visible</li><li>17-companion intel database online</li><li>checkmarks saved in your browser</li></ul></div>
 </header>
 
 <section class="grid3">
 <div class="box card"><h2>1. Choose your ending</h2><p class="top">This changes your route and warnings. It does <b>not</b> hide unrelated side quests.</p><div id="routeBtns" class="row"></div></div>
 <div class="box card"><h2>2. Spoiler level</h2><p class="top">Choose how much the warning cards explain.</p><div id="spoilerBtns" class="row"></div></div>
-<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. DLC quest data will slot into the same checklist system.</p><div id="dlcBox" class="row"></div></div>
+<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. DLC quest data slots into the same checklist system.</p><div id="dlcBox" class="row"></div></div>
 </section>
 
 <section class="grid3">
@@ -28,6 +28,7 @@
 <nav class="box tabs">
 <button class="tab active" data-tab="route">My Route</button>
 <button class="tab" data-tab="sidequests">Side Quests</button>
+<button class="tab" data-tab="companions">Companions</button>
 <button class="tab" data-tab="faction">Faction Jobs</button>
 <button class="tab" data-tab="timed">Timed / Danger</button>
 <button class="tab" data-tab="weapons">Weapon Mod Lab</button>
@@ -55,6 +56,36 @@
 <div id="sideList" class="questgrid"></div></div>
 </section>
 
+<section id="companions" class="panel">
+<div class="box card">
+  <div class="section-title"><div><h2>Companion Intel</h2><p class="top">All 17 permanent companions with recruitment, origin, questline, affinity shortcuts, romance status, and perks.</p></div><span class="pill">17 companions</span></div>
+  <div class="callout companion-help"><strong>Simple version:</strong> click a portrait to open that companion’s full intel. Use the two tiny checks to remember whether you recruited them and earned their perk. Dogmeat, Ada, and custom Automatrons do not use normal affinity.</div>
+  <input id="companionSearch" class="search" placeholder="Search companions, perks, quests..." autocomplete="off">
+  <div id="companionFilterbar" class="filterbar"></div>
+  <div id="companionGrid" class="companion-grid"></div>
+</div>
+
+<div id="companionDetail" class="box card companion-detail hidden" aria-live="polite">
+  <div class="companion-detail-head">
+    <div class="companion-detail-portrait"><img id="companionDetailImage" alt=""><div id="companionDetailFallback" class="portrait-fallback"></div></div>
+    <div class="companion-detail-title"><p class="eyebrow">COMPANION INTEL</p><h2 id="companionDetailName"></h2><div id="companionDetailTags" class="row detail-tags"></div></div>
+    <button id="companionClose" class="close-detail" type="button" aria-label="Close companion intel">×</button>
+  </div>
+  <div class="companion-intel-grid">
+    <div class="intel-block"><h3>Origin</h3><p id="companionOrigin"></p></div>
+    <div class="intel-block"><h3>How to recruit</h3><p id="companionRecruit"></p></div>
+    <div class="intel-block"><h3>Questline</h3><ul id="companionQuestline"></ul></div>
+    <div class="intel-block perk-block"><h3>Companion perk</h3><p><strong id="companionPerk"></strong></p><p id="companionPerkEffect"></p></div>
+  </div>
+  <div class="affinity-grid">
+    <div class="intel-block likes-block"><h3>✓ Good for affinity</h3><ul id="companionLikes"></ul></div>
+    <div class="intel-block dislikes-block"><h3>✕ Avoid around them</h3><ul id="companionDislikes"></ul></div>
+  </div>
+  <div class="callout"><strong>Easy affinity plan:</strong> <span id="companionAffinityTip"></span></div>
+  <p id="companionNote" class="companion-note"></p>
+</div>
+</section>
+
 <section id="faction" class="panel">
 <div class="grid2">
 <div class="box card"><h2 id="factionTitle">Chosen faction storyline</h2><p id="factionIntro" class="top"></p><div id="factionMain" class="list"></div></div>
@@ -77,11 +108,12 @@
 </div>
 </section>
 
-<div class="box card footer"><p class="small"><b>Current build:</b> base-game route + the guidebook's full major Side Quest list + route-specific faction jobs. The next expansion can add the DLC quest trees and more freeform/location quests into the same tabs.</p></div>
+<div class="box card footer"><p class="small"><b>Current build:</b> base-game route + major Side Quests + route-specific faction jobs + full companion intel. DLC quest trees and more freeform/location quests can continue slotting into the same tabs.</p></div>
 </div>
 <script src="data-routes.js"></script>
 <script src="data-factions.js"></script>
 <script src="data-weapons.js"></script>
+<script src="data-companions.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
