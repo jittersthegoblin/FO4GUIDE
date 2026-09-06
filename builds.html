@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FO4GUIDE — Build Planner</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="builds.css">
+</head>
+<body>
+<div class="wrap planner-shell">
+<header class="box hero planner-hero">
+  <div>
+    <p class="eyebrow">Vault-Tec S.P.E.C.I.A.L. Consultant</p>
+    <h1>BUILD PLANNER</h1>
+    <p class="sub">Pick the ways you actually like to play. The planner combines your tags into a legal starting SPECIAL suggestion, long-term stat targets, useful perk unlocks, and a highlighted SPECIAL chart.</p>
+    <div class="planner-hero-actions">
+      <a class="planner-link primary" href="index.html">← Back to FO4GUIDE</a>
+      <a class="planner-link" href="index.html#weapons">Weapon Mod Lab</a>
+    </div>
+  </div>
+  <div class="terminal">
+    <p>BUILD LOGIC</p>
+    <ul>
+      <li>choose several playstyles at once</li>
+      <li>starting spread always totals 28 SPECIAL points</li>
+      <li>core, strong and optional perks separated</li>
+      <li>actual SPECIAL perk thresholds used</li>
+      <li>no fake prerequisite chains</li>
+      <li>your selected tags save in this browser</li>
+    </ul>
+  </div>
+</header>
+
+<section class="box planner-card">
+  <div class="section-title">
+    <div>
+      <p class="eyebrow">STEP 1</p>
+      <h2>Pick your playstyle tags</h2>
+      <p class="top">Mix as many as you want. A stealth sniper and a stealth pistol build should not get the same advice.</p>
+    </div>
+    <span id="tagCount" class="pill">0 selected</span>
+  </div>
+  <div id="playstyleGroups"></div>
+  <div class="planner-toolbar">
+    <div id="selectedBuildTags" class="selected-row"></div>
+    <button id="clearBuild" type="button">Clear tags</button>
+  </div>
+</section>
+
+<section class="planner-layout">
+  <div class="planner-stack">
+    <section class="box planner-card">
+      <div class="section-title"><div><p class="eyebrow">STEP 2</p><h2>SPECIAL recommendation</h2><p class="top">A starting spread for character creation, plus higher targets worth training toward later.</p></div></div>
+      <div id="specialRecommendation"></div>
+    </section>
+
+    <section class="box planner-card">
+      <div class="section-title"><div><p class="eyebrow">STEP 3</p><h2>Recommended perks</h2><p class="top">Core perks define the build. Strong perks support it. Optional perks are useful but should not dictate your whole SPECIAL spread.</p></div></div>
+      <div id="recommendedPerks"></div>
+    </section>
+  </div>
+
+  <aside class="planner-stack">
+    <section class="box planner-card">
+      <p class="eyebrow">BUILD NOTES</p>
+      <h2>Synergies & conflicts</h2>
+      <p class="top">This catches combinations where two tags work especially well together — or pull your SPECIAL in opposite directions.</p>
+      <div id="buildSynergies" style="margin-top:12px"></div>
+    </section>
+
+    <section class="box planner-card">
+      <p class="eyebrow">HOW TO READ IT</p>
+      <h2>SPECIAL is an unlock threshold</h2>
+      <div class="build-note"><strong>Example:</strong> Ninja sits at AGI 7. You need base Agility 7 to buy Ninja, but you do not need to purchase all of the Agility perks above it first.</div>
+      <div class="build-note"><strong>Starting vs. later:</strong> your starting character only has 28 total SPECIAL points. You can spend later level-up perk points directly on SPECIAL training, so a long-term target of 8 or 9 does not mean you must start there.</div>
+      <div class="build-note"><strong>Weapon rule:</strong> damage perks follow weapon class. A laser rifle can use Rifleman or Commando depending on its receiver; “energy weapon” itself is not one universal damage perk.</div>
+    </section>
+  </aside>
+</section>
+
+<section class="box planner-card" style="margin-top:14px">
+  <div class="tree-intro">
+    <div>
+      <p class="eyebrow">FULL PERK CHART</p>
+      <h2>Your highlighted SPECIAL tree</h2>
+      <p>Every base SPECIAL perk is shown at its real stat threshold. Perks suggested by your selected tags light up as CORE, STRONG or OPTIONAL.</p>
+    </div>
+    <span class="pill">Rank 1 thresholds</span>
+  </div>
+  <div id="specialTree" class="special-tree"></div>
+</section>
+
+<section class="box planner-source">
+  <p><strong>Guide source:</strong> SPECIAL roles and perk thresholds are based on Fallout 4’s SPECIAL/perk chart and the Prima Fallout 4 eGuide. The playstyle combinations and priority labels are recommendations made for this interactive guide rather than copied build prescriptions.</p>
+  <p>Higher ranks of individual perks can require character levels in addition to the SPECIAL threshold. This page focuses on the SPECIAL value needed to unlock each perk family in the first place.</p>
+</section>
+</div>
+<script src="data-builds.js"></script>
+<script src="builds.js"></script>
+</body>
+</html>
