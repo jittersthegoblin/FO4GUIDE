@@ -1,0 +1,50 @@
+// Prima-style quest classifications for content that does not belong in the main Side Quest list.
+// `prima:true` means the classification/name has been directly verified against the user's Prima guide extracts.
+const guidebookExtras=[
+  {id:'gb_cambridge_polymer',name:'Cambridge Polymer Labs',kind:'Miscellaneous',area:'Cambridge',tags:['misc'],prima:true,desc:'Complete the research project inside Cambridge Polymer Labs. Prima explicitly labels this a Miscellaneous Quest.'},
+  {id:'gb_trouble_brewin',name:"Trouble Brewin'",kind:'Miscellaneous',area:'Goodneighbor / Boston Harbor',tags:['misc','goodneighbor'],prima:true,desc:'Find the Drinkin’ Buddy brewing machine at the Shamrock Taphouse and decide whether to keep it or deliver it to Hotel Rexford.'},
+  {id:'gb_out_left_field',name:'Out in Left Field',kind:'Freeform',area:'Diamond City / Westing Estate',tags:['freeform','diamond'],prima:true,desc:'Recover Moe Cronin’s signed baseball memorabilia. Prima explicitly refers to this as a Freeform Quest.'},
+  {id:'gb_arlen_glass',name:'Arlen Glass',kind:'Miscellaneous',area:'The Slog / Wilson Atomatoys',tags:['misc'],prima:true,desc:'Help Arlen Glass recover memories and Giddyup Buttercup material connected to his pre-War life.'},
+  {id:'gb_barney_rook',name:'Barney Rook',kind:'Miscellaneous',area:'Salem / Rook Family House',tags:['misc'],prima:true,desc:'Help Barney Rook defend his home and deal with the mirelurks around Salem.'},
+  {id:'gb_virgils_cure',name:"Virgil's Cure",kind:'Miscellaneous',area:'The Institute / Rocky Cave',tags:['misc'],prima:true,desc:'Recover the experimental serum from the Institute FEV laboratory and return it to Virgil.'},
+  {id:'gb_fallen_hero',name:'Fallen Hero',kind:'Freeform / Misc',area:'Bunker Hill / Old Gullet Sinkhole',tags:['freeform','misc','bunker'],prima:true,desc:'A Bunker Hill freeform job involving the remains of a fallen caravan guard and Grandpa Savoldi’s hat.'},
+  {id:'gb_recruit_hancock',name:'Recruiting Hancock',kind:'Miscellaneous / Recruitment',area:'Goodneighbor',tags:['misc','companion','goodneighbor'],prima:true,desc:'The follow-up that makes Hancock available after The Big Dig, depending on how its ending was resolved.'},
+
+  {id:'gb_art_appreciation',name:'Art Appreciation',kind:'Miscellaneous',area:'Goodneighbor / Pickman Gallery',tags:['misc','goodneighbor'],desc:'Hancock sends you to investigate Pickman Gallery and recover something for him.'},
+  {id:'gb_atom_cats',name:'Atom Cats',kind:'Miscellaneous',area:'Atom Cats Garage',tags:['misc'],desc:'Help the Atom Cats and earn their approval at the garage.'},
+  {id:'gb_botany',name:'Botany Class',kind:'Miscellaneous',area:'Diamond City / Forest Grove Marsh',tags:['misc','diamond'],desc:'Help Solomon obtain a mutated fern flower for his chem business.'},
+  {id:'gb_cleaner',name:'The Cleaner',kind:'Miscellaneous',area:'Goodneighbor',tags:['misc','goodneighbor'],desc:'Take a job from Whitechapel Charlie involving a group of warehouse targets.'},
+  {id:'gb_combat_zone',name:'The Combat Zone',kind:'Miscellaneous / Recruitment',area:'Combat Zone',tags:['misc','companion'],desc:'Clear the Combat Zone raiders and speak with Tommy Lonegan; this is the recruitment gateway for Cait.'},
+  {id:'gb_detective_files',name:'Detective Case Files',kind:'Miscellaneous',area:'Diamond City',tags:['misc','diamond'],desc:'Inspect the case files in Valentine Detective Agency to open Nick’s detective cases.'},
+  {id:'gb_dc_wanted',name:"Diamond City's Most Wanted",kind:'Miscellaneous',area:'Diamond City / Radiant locations',tags:['misc','diamond'],desc:'Take wanted-poster jobs for raiders, super mutants, or feral ghouls around Diamond City.'},
+  {id:'gb_jamaica',name:'Find the Treasures of Jamaica Plain',kind:'Miscellaneous',area:'Jamaica Plain',tags:['misc'],desc:'Investigate the legendary treasure beneath Jamaica Plain.'},
+  {id:'gb_fly_fishing',name:'Fly Fishing',kind:'Miscellaneous',area:'Bunker Hill',tags:['misc','bunker'],desc:'A small Bunker Hill job connected to local trade and supplies.'},
+  {id:'gb_giddyup',name:"Giddyup 'n Go",kind:'Miscellaneous',area:'The Slog / Wilson Atomatoys',tags:['misc'],desc:'A Giddyup Buttercup-related job tied to the Slog and Wilson Atomatoys.'},
+  {id:'gb_gun_run',name:'Gun Run',kind:'Miscellaneous',area:'Bunker Hill',tags:['misc','bunker'],desc:'A Bunker Hill caravan-related errand involving weapons and local threats.'},
+  {id:'gb_hazardous',name:'Hazardous Material',kind:'Miscellaneous',area:'Diamond City / HalluciGen',tags:['misc','diamond'],desc:'A small job involving hazardous material and HalluciGen-related supplies.'},
+  {id:'gb_ness',name:'Meet Ness at the Crash Site',kind:'Miscellaneous',area:'Commonwealth crash site',tags:['misc'],desc:'Meet Ness at a crashed aircraft site for a scavenging opportunity.'},
+  {id:'gb_nuka_needs',name:'Nuka Cola Needs',kind:'Miscellaneous',area:'Diamond City',tags:['misc','diamond'],desc:'A small Diamond City request involving Nuka-Cola.'},
+  {id:'gb_pool_clean',name:'Pool Cleaning',kind:'Miscellaneous',area:'Diamond City',tags:['misc','diamond'],desc:'A small Diamond City job involving the local water supply and pool area.'},
+  {id:'gb_prep_school',name:'Prep School',kind:'Miscellaneous',area:'Bunker Hill / East Boston Prep School',tags:['misc','bunker'],desc:'A Bunker Hill job that follows Traffic Jam and sends you to East Boston Preparatory School.'},
+  {id:'gb_traffic',name:'Traffic Jam',kind:'Miscellaneous',area:'Bunker Hill / National Guard Training Yard',tags:['misc','bunker'],desc:'Deb asks you to clear feral ghouls at the National Guard training yard.'},
+  {id:'gb_treasure_hunt',name:'Treasure Hunt',kind:'Miscellaneous',area:'Commonwealth',tags:['misc'],desc:'Follow clues for a small Commonwealth treasure-hunting objective.'},
+  {id:'gb_vault81_tour',name:'Vault 81 Tour',kind:'Miscellaneous',area:'Vault 81',tags:['misc','vault'],desc:'Take the guided tour of Vault 81 and learn the layout and residents.'},
+  {id:'gb_way_back',name:'Way Back Home',kind:'Miscellaneous',area:'Diamond City',tags:['misc','diamond'],desc:'A small Diamond City objective involving one resident’s past and belongings.'},
+  {id:'gb_workplace',name:'Workplace Safety',kind:'Miscellaneous',area:'Commonwealth industrial site',tags:['misc'],desc:'A small objective connected to a dangerous workplace location.'},
+
+  {id:'gb_pillar',name:'A Pillar of the Community',kind:'Freeform / Unmarked',area:'Charles View Amphitheater',tags:['freeform'],desc:'Investigate the Pillars of the Community and their recruitment pitch.'},
+  {id:'gb_bill_sutton',name:'Bill Sutton',kind:'Freeform / Unmarked',area:'Warwick Homestead',tags:['freeform'],desc:'A small unmarked interaction at Warwick Homestead.'},
+  {id:'gb_brother',name:'Brother Against Brother',kind:'Freeform / Unmarked',area:'Commonwealth',tags:['freeform'],desc:'A small unmarked encounter involving a family conflict.'},
+  {id:'gb_familiar',name:'Familiar Faces',kind:'Freeform / Unmarked',area:'The Institute',tags:['freeform'],desc:'An unmarked Institute interaction involving familiar people and synth identity.'},
+  {id:'gb_fertilizer',name:'Fertilizer Woman',kind:'Freeform / Unmarked',area:'Diamond City',tags:['freeform','diamond'],desc:'An unmarked Diamond City trading opportunity involving fertilizer.'},
+  {id:'gb_holly',name:'Holly',kind:'Freeform / Unmarked',area:'The Slog',tags:['freeform'],desc:'A small unmarked interaction with Holly at the Slog.'},
+  {id:'gb_lucy',name:'Lucy Abernathy',kind:'Freeform / Unmarked',area:'Abernathy Farm',tags:['freeform'],desc:'A small unmarked interaction and trading opportunity with Lucy Abernathy.'},
+  {id:'gb_maintenance',name:'Maintenance Man',kind:'Freeform / Unmarked',area:'Vault 81',tags:['freeform','vault'],desc:'A small unmarked Vault 81 task involving maintenance work.'},
+  {id:'gb_quality',name:'Quality Assurance',kind:'Freeform / Unmarked',area:'General Atomics Galleria',tags:['freeform'],desc:'An unmarked interaction tied to the Galleria’s pre-War robot routines.'},
+  {id:'gb_brown',name:'Supervisor Brown',kind:'Freeform / Unmarked',area:'Graygarden',tags:['freeform'],desc:'A small unmarked interaction with one of Graygarden’s supervisors.'},
+  {id:'gb_greene',name:'Supervisor Greene',kind:'Freeform / Unmarked',area:'Graygarden',tags:['freeform'],desc:'A small unmarked trading/activity interaction with Supervisor Greene.'},
+  {id:'gb_suspected_synth',name:'Suspected Synth',kind:'Freeform / Unmarked',area:'Settlement',tags:['freeform','minutemen'],desc:'A settlement dispute over whether a resident is a synth; outcomes can affect the local settlement.'},
+  {id:'gb_wedding',name:'Wedding Day',kind:'Freeform / Unmarked',area:'Diamond City',tags:['freeform','diamond'],desc:'An unmarked Diamond City event connected to a local wedding.'}
+];
+
+const guidebookExtraFilters=[['all','All'],['misc','Miscellaneous'],['freeform','Freeform / Unmarked'],['companion','Companion-linked'],['prima','Prima verified']];
