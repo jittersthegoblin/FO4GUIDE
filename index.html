@@ -6,12 +6,13 @@
 <title>FO4GUIDE</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="achievements.css">
+<link rel="stylesheet" href="guidebook.css">
 </head>
 <body>
 <div class="wrap">
 <header class="box hero">
-<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
-<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>independent side quests always visible</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
+<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, Prima-style miscellaneous/freeform jobs, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
+<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>main story split into individual quests</li><li>Prima-style Misc / Freeform layer online</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
 </header>
 
 <section class="grid3">
@@ -29,6 +30,7 @@
 <nav class="box tabs">
 <button class="tab active" data-tab="route">My Route</button>
 <button class="tab" data-tab="sidequests">Side Quests</button>
+<button class="tab" data-tab="guidebook">Misc / Freeform</button>
 <button class="tab" data-tab="companions">Companions</button>
 <button class="tab" data-tab="achievements">Achievements</button>
 <button class="tab" data-tab="faction">Faction Jobs</button>
@@ -43,19 +45,31 @@
 </div>
 
 <section id="route" class="panel active">
-<div class="callout"><strong>How this page works:</strong> your chosen ending controls the main path and faction warnings. The big Side Quests list stays available because those quests are separate from the main/faction questlines. You can freely use them as detours unless a card specifically warns about a local choice.</div>
+<div class="callout"><strong>How this page works:</strong> your chosen ending controls the recommended main path and faction warnings. The story is now split into individual quest-sized steps instead of compressed ranges, so it can function more like the Prima guidebook while you play.</div>
 <div class="grid2">
-<div class="box card"><h2>Recommended route</h2><p class="top">Main/faction steps in a sensible order for your selected ending.</p><div id="steps" class="list"></div></div>
+<div class="box card"><h2>Recommended route</h2><p class="top">Main/faction quests in a sensible order for your selected ending.</p><div id="steps" class="list"></div></div>
 <div class="box card"><h2>Stop signs</h2><p class="top">Read these before pushing the story too far.</p><div id="warnings" class="list"></div></div>
 </div>
-<div class="box card" style="margin-top:14px"><div class="section-title"><div><h2>Side quests you can mix into this run</h2><p class="top">These are independent of your selected ending. Local quest choices can still have their own consequences.</p></div><button onclick="openTab('sidequests')">View all side quests</button></div><div id="sidePreview" class="questgrid"></div></div>
+<div class="box card" style="margin-top:14px"><div class="section-title"><div><h2>Side quests you can mix into this run</h2><p class="top">Independent Side and Side Companion quests remain available as detours unless a card specifically warns about a local consequence.</p></div><button onclick="openTab('sidequests')">View all side quests</button></div><div id="sidePreview" class="questgrid"></div></div>
 </section>
 
 <section id="sidequests" class="panel">
-<div class="box card"><h2>Base-game Side Quests</h2><p class="top">The guidebook lists these separately from main and faction quests. Companion-related quests are tagged so you can spot them quickly.</p>
+<div class="box card"><h2>Base-game Side & Companion Quests</h2><p class="top">These are kept separate from Main, Faction, Miscellaneous and Freeform content. Where Prima explicitly uses a different classification, its classification takes priority and that quest is moved to the Misc / Freeform tab.</p>
 <input id="sideSearch" class="search" placeholder="Search side quests..." autocomplete="off">
 <div class="filterbar"><button class="sideFilter active" data-filter="all">All</button><button class="sideFilter" data-filter="world">World / City</button><button class="sideFilter" data-filter="companion">Companion</button><button class="sideFilter" data-filter="vault">Vault</button></div>
 <div id="sideList" class="questgrid"></div></div>
+</section>
+
+<section id="guidebook" class="panel">
+<div class="box card guidebook-intro">
+  <div class="section-title"><div><p class="eyebrow">PRIMA QUEST CLASSIFICATION</p><h2>Miscellaneous & Freeform</h2><p class="top">The guidebook treats many small jobs separately from full Side Quests. This section restores that layer instead of flattening everything together.</p></div><span class="pill">Guidebook layer</span></div>
+  <div class="callout"><strong>How the labels work:</strong> <span class="prima-badge">PRIMA ✓</span> means I directly verified that classification or quest reference in your uploaded Prima guide. Other entries are cross-checked against the game’s quest structure and kept separate so the site does not pretend they were directly confirmed by the book.</div>
+  <div class="guidebook-overall"><p id="guidebookProgressText">0 entries checked off</p><div class="guidebook-progress"><div id="guidebookProgressFill"></div></div></div>
+  <input id="guidebookSearch" class="search" placeholder="Search Misc, Freeform, location, companion..." autocomplete="off">
+  <div id="guidebookFilters" class="filterbar"></div>
+  <p class="guidebook-note">Prima sometimes uses “Freeform” where modern Fallout references use “unmarked,” and a few quests are classified differently by newer community lists. For this tab, verified Prima terminology wins.</p>
+  <div id="guidebookList" class="guidebook-grid"></div>
+</div>
 </section>
 
 <section id="companions" class="panel">
@@ -101,7 +115,7 @@
   <div id="achievementFilters" class="filterbar"></div>
   <p class="achievement-filter-note">Tip: click a DLC progress tile or use the filters to focus on one pack. “Unchecked” is handy when you are hunting the last few.</p>
   <div id="achievementList" class="achievement-list"></div>
-  <p class="achievement-source-note">Achievement names and total are based on Fallout 4's Steam achievement set; the short goal text is written for this guide.</p>
+  <p class="achievement-source-note">Achievement names and total are based on Fallout 4's Steam achievement set; base-game descriptions are also cross-checked against the Prima achievement appendix where available.</p>
 </div>
 </section>
 
@@ -127,13 +141,15 @@
 </div>
 </section>
 
-<div class="box card footer"><p class="small"><b>Current build:</b> route planner + major Side Quests + route-specific faction jobs + companion intel + manual 84-achievement tracker. DLC quest trees and more freeform/location quests can continue slotting into the same tabs.</p></div>
+<div class="box card footer"><p class="small"><b>Current build:</b> individual main-story route steps + expanded Side/Companion quests + Prima-style Misc/Freeform checklist + faction jobs + companion intel + manual 84-achievement tracker + safety warnings. DLC quest trees and the Weapon Mod Lab are the next major areas for deeper guidebook-style expansion.</p></div>
 </div>
 <script src="data-routes.js"></script>
 <script src="data-factions.js"></script>
 <script src="data-weapons.js"></script>
 <script src="data-companions.js"></script>
+<script src="data-guidebook.js"></script>
 <script src="app.js"></script>
+<script src="guidebook.js"></script>
 <script src="safety.js"></script>
 <script src="data-achievements.js"></script>
 <script src="achievements.js"></script>
