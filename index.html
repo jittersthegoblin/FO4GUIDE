@@ -7,18 +7,19 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="achievements.css">
 <link rel="stylesheet" href="guidebook.css">
+<link rel="stylesheet" href="dlc.css">
 </head>
 <body>
 <div class="wrap">
 <header class="box hero">
-<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, Prima-style miscellaneous/freeform jobs, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
-<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>main story split into individual quests</li><li>Prima-style Misc / Freeform layer online</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
+<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, Prima-style miscellaneous/freeform jobs, GOTY DLC quests, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
+<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>main story split into individual quests</li><li>Prima-style Misc / Freeform layer online</li><li>Prima GOTY DLC quest tracker online</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
 </header>
 
 <section class="grid3">
 <div class="box card"><h2>1. Choose your ending</h2><p class="top">This changes your route and warnings. It does <b>not</b> hide unrelated side quests.</p><div id="routeBtns" class="row"></div></div>
 <div class="box card"><h2>2. Spoiler level</h2><p class="top">Choose how much the warning cards explain.</p><div id="spoilerBtns" class="row"></div></div>
-<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. DLC quest data slots into the same checklist system.</p><div id="dlcBox" class="row"></div></div>
+<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. These toggles now also control which DLC quest groups appear in the DLC checklist.</p><div id="dlcBox" class="row"></div></div>
 </section>
 
 <section class="grid3">
@@ -31,6 +32,7 @@
 <button class="tab active" data-tab="route">My Route</button>
 <button class="tab" data-tab="sidequests">Side Quests</button>
 <button class="tab" data-tab="guidebook">Misc / Freeform</button>
+<button class="tab" data-tab="dlcquests">DLC Quests</button>
 <button class="tab" data-tab="companions">Companions</button>
 <button class="tab" data-tab="achievements">Achievements</button>
 <button class="tab" data-tab="faction">Faction Jobs</button>
@@ -69,6 +71,17 @@
   <div id="guidebookFilters" class="filterbar"></div>
   <p class="guidebook-note">Prima sometimes uses “Freeform” or “Location Quest” where modern Fallout references use “unmarked” or group the activity differently. For this tab, verified Prima terminology wins.</p>
   <div id="guidebookList" class="guidebook-grid"></div>
+</div>
+</section>
+
+<section id="dlcquests" class="panel">
+<div class="box card">
+  <div class="section-title"><div><p class="eyebrow">PRIMA GOTY EXPANSIONS</p><h2>DLC Quest Checklist</h2><p class="top">Automatron, Far Harbor, Vault-Tec Workshop and Nuka-World quest structures based on Prima’s GOTY eGuide chapters. Wasteland Workshop and Contraptions Workshop are noted separately because they are workshop-system expansions rather than conventional questlines.</p></div><span class="pill">DLC-aware</span></div>
+  <div class="callout"><strong>Route warning:</strong> Nuka-World’s <b>Home Sweet Home</b> is intentionally called out because Commonwealth raider expansion can permanently damage a Preston-friendly Minutemen run. Far Harbor also contains several mutually exclusive outcome branches, so its Main cards are labeled accordingly.</div>
+  <div class="dlc-overall"><p id="dlcProgressText">0 DLC quests checked off</p><div class="dlc-progress"><div id="dlcProgressFill"></div></div></div>
+  <input id="dlcQuestSearch" class="search" placeholder="Search DLC quests, types, warnings..." autocomplete="off">
+  <div id="dlcQuestFilters" class="filterbar"></div>
+  <div id="dlcQuestGroups"></div>
 </div>
 </section>
 
@@ -141,16 +154,18 @@
 </div>
 </section>
 
-<div class="box card footer"><p class="small"><b>Current build:</b> individual main-story route steps + expanded Side/Companion quests + Prima-style Misc/Freeform checklist + faction jobs + companion intel + manual 84-achievement tracker + safety warnings. DLC quest trees and the Weapon Mod Lab are the next major areas for deeper guidebook-style expansion.</p></div>
+<div class="box card footer"><p class="small"><b>Current build:</b> individual base-game Main route steps + Prima-classified Side/Companion/Misc/Freeform/Faction jobs + Prima GOTY DLC quest checklist + companion intel + manual 84-achievement tracker + safety warnings. The Weapon Mod Lab remains the biggest deliberately-small prototype area.</p></div>
 </div>
 <script src="data-routes.js"></script>
 <script src="data-factions.js"></script>
 <script src="data-weapons.js"></script>
 <script src="data-companions.js"></script>
 <script src="data-guidebook.js"></script>
+<script src="data-dlc.js"></script>
 <script src="route-prologue.js"></script>
 <script src="app.js"></script>
 <script src="guidebook.js"></script>
+<script src="dlc.js"></script>
 <script src="safety.js"></script>
 <script src="data-achievements.js"></script>
 <script src="achievements.js"></script>
