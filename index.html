@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FO4GUIDE</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="achievements.css">
 </head>
 <body>
 <div class="wrap">
 <header class="box hero">
-<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, companions, warnings, timed jobs, and weapon help.</p></div>
-<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>independent side quests always visible</li><li>17-companion intel database online</li><li>checkmarks saved in your browser</li></ul></div>
+<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
+<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>independent side quests always visible</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
 </header>
 
 <section class="grid3">
@@ -29,6 +30,7 @@
 <button class="tab active" data-tab="route">My Route</button>
 <button class="tab" data-tab="sidequests">Side Quests</button>
 <button class="tab" data-tab="companions">Companions</button>
+<button class="tab" data-tab="achievements">Achievements</button>
 <button class="tab" data-tab="faction">Faction Jobs</button>
 <button class="tab" data-tab="timed">Timed / Danger</button>
 <button class="tab" data-tab="weapons">Weapon Mod Lab</button>
@@ -86,6 +88,23 @@
 </div>
 </section>
 
+<section id="achievements" class="panel">
+<div class="box card">
+  <div class="achievement-head"><div><p class="eyebrow">STEAM COMPLETION</p><h2>Achievement Tracker</h2><p class="top">A manual checklist for every Fallout 4 Steam achievement. No Steam connection or login required.</p></div><span class="pill">84 total</span></div>
+  <div class="callout"><strong>Manual tracker:</strong> check achievements off when Steam awards them. Your checks are saved only in this browser. This page does not read, change, or connect to your Steam account.</div>
+  <div class="achievement-overall">
+    <div class="achievement-overall-top"><p id="achievementProgressText">0 of 84 achievements checked off</p><span class="pill">100% goal</span></div>
+    <div class="achievement-progress"><div id="achievementProgressFill"></div></div>
+    <div id="achievementGroupProgress" class="achievement-group-progress"></div>
+  </div>
+  <div class="achievement-toolbar"><input id="achievementSearch" class="search" placeholder="Search achievements, quests, DLC, goals..." autocomplete="off"><button id="achievementReset" class="achievement-reset" type="button">Reset checks</button></div>
+  <div id="achievementFilters" class="filterbar"></div>
+  <p class="achievement-filter-note">Tip: click a DLC progress tile or use the filters to focus on one pack. “Unchecked” is handy when you are hunting the last few.</p>
+  <div id="achievementList" class="achievement-list"></div>
+  <p class="achievement-source-note">Achievement names and total are based on Fallout 4's Steam achievement set; the short goal text is written for this guide.</p>
+</div>
+</section>
+
 <section id="faction" class="panel">
 <div class="grid2">
 <div class="box card"><h2 id="factionTitle">Chosen faction storyline</h2><p id="factionIntro" class="top"></p><div id="factionMain" class="list"></div></div>
@@ -108,7 +127,7 @@
 </div>
 </section>
 
-<div class="box card footer"><p class="small"><b>Current build:</b> base-game route + major Side Quests + route-specific faction jobs + full companion intel. DLC quest trees and more freeform/location quests can continue slotting into the same tabs.</p></div>
+<div class="box card footer"><p class="small"><b>Current build:</b> route planner + major Side Quests + route-specific faction jobs + companion intel + manual 84-achievement tracker. DLC quest trees and more freeform/location quests can continue slotting into the same tabs.</p></div>
 </div>
 <script src="data-routes.js"></script>
 <script src="data-factions.js"></script>
@@ -116,5 +135,7 @@
 <script src="data-companions.js"></script>
 <script src="app.js"></script>
 <script src="safety.js"></script>
+<script src="data-achievements.js"></script>
+<script src="achievements.js"></script>
 </body>
 </html>
