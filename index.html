@@ -8,18 +8,19 @@
 <link rel="stylesheet" href="achievements.css">
 <link rel="stylesheet" href="guidebook.css">
 <link rel="stylesheet" href="dlc.css">
+<link rel="stylesheet" href="weapon-lab.css">
 </head>
 <body>
 <div class="wrap">
 <header class="box hero">
-<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, Prima-style miscellaneous/freeform jobs, GOTY DLC quests, companions, achievements, warnings, timed jobs, and weapon help.</p></div>
-<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>main story split into individual quests</li><li>Prima-style Misc / Freeform layer online</li><li>Prima GOTY DLC quest tracker online</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>checkmarks saved in your browser</li></ul></div>
+<div><p class="eyebrow">Vault-Tec Personal Assistant</p><h1>FO4GUIDE</h1><p class="sub">Choose your ending, then use the guide as an actual playthrough checklist — main story, faction quests, side quests, Prima-style miscellaneous/freeform jobs, GOTY DLC quests, companions, achievements, warnings, build planning, and practical weapon-mod help.</p></div>
+<div class="terminal"><p>STATUS</p><ul><li>route-aware quest planner online</li><li>main story split into individual quests</li><li>Prima-style Misc / Freeform layer online</li><li>Prima GOTY DLC quest tracker online</li><li>17-companion intel database online</li><li>84-achievement manual tracker online</li><li>expanded weapon mod lab online</li><li>checkmarks saved in your browser</li></ul></div>
 </header>
 
 <section class="grid3">
 <div class="box card"><h2>1. Choose your ending</h2><p class="top">This changes your route and warnings. It does <b>not</b> hide unrelated side quests.</p><div id="routeBtns" class="row"></div></div>
 <div class="box card"><h2>2. Spoiler level</h2><p class="top">Choose how much the warning cards explain.</p><div id="spoilerBtns" class="row"></div></div>
-<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. These toggles now also control which DLC quest groups appear in the DLC checklist.</p><div id="dlcBox" class="row"></div></div>
+<div class="box card"><h2>3. Installed DLC</h2><p class="top">All enabled by default. These toggles control DLC quest groups, companions, and DLC weapon platforms.</p><div id="dlcBox" class="row"></div></div>
 </section>
 
 <section class="grid3">
@@ -38,6 +39,7 @@
 <button class="tab" data-tab="faction">Faction Jobs</button>
 <button class="tab" data-tab="timed">Timed / Danger</button>
 <button class="tab" data-tab="weapons">Weapon Mod Lab</button>
+<button type="button" onclick="location.href='builds.html'">Build Planner ↗</button>
 </nav>
 
 <div id="questPeek" class="questpeek hidden" aria-live="polite">
@@ -136,7 +138,6 @@
 <div class="grid2">
 <div class="box card"><h2 id="factionTitle">Chosen faction storyline</h2><p id="factionIntro" class="top"></p><div id="factionMain" class="list"></div></div>
 <div class="box card"><h2>Optional faction jobs</h2><p class="top">Side, miscellaneous, and radiant work for your selected faction. Radiant jobs may repeat.</p><div id="factionSide" class="list"></div></div>
-</div>
 </section>
 
 <section id="timed" class="panel">
@@ -148,13 +149,32 @@
 </section>
 
 <section id="weapons" class="panel">
-<div class="grid2">
-<div class="box card"><h2>Weapon family</h2><div id="weaponBtns" class="row"></div><h2 style="margin-top:16px">Build goal</h2><div id="buildBtns" class="row"></div></div>
-<div class="box card"><h2>Suggested setup</h2><div id="weaponOut"></div></div>
+<div class="box card">
+  <div class="weapon-lab-head"><div><p class="eyebrow">VAULT-TEC WEAPONS WORKBENCH</p><h2>Weapon Mod Lab</h2><p class="top">Pick the exact weapon platform you are holding. The guide explains what each mod slot changes, which perks craft advanced parts, what build the weapon suits, and how to scavenge the attachment instead of crafting it.</p></div><span id="weaponCount" class="pill weapon-count">Weapon catalog</span></div>
+  <div class="weapon-basics">
+    <div class="weapon-basic"><h3>1 · CRAFT IT</h3><p>At a Weapons Workbench, advanced ballistic mods usually use <b>Gun Nut</b>, energy/high-tech mods use <b>Science!</b>, and melee mods use <b>Blacksmith</b>. Some high-end mods require two perk families.</p></div>
+    <div class="weapon-basic"><h3>2 · STEAL THE MOD</h3><p>Find or buy the same weapon with the attachment already installed. Replace that attachment with a cheap/basic one; the removed part becomes a loose mod you can reuse.</p></div>
+    <div class="weapon-basic"><h3>3 · DON'T SCRAP TOO FAST</h3><p>A boring enemy gun may be carrying an expensive suppressor, scope, receiver or stock. Check heavily-modified loot before scrapping or selling it.</p></div>
+  </div>
+  <div class="callout"><strong>Important weapon-perk rule:</strong> the attachment can change which damage perk applies. A semi-auto rifle/shotgun uses <b>Rifleman</b>; an automatic receiver uses <b>Commando</b>; a non-automatic pistol uses <b>Gunslinger</b>. On Pipe/Laser/Plasma families, changing <b>grip ↔ stock</b> can also change pistol ↔ rifle classification.</div>
+  <div class="mod-vocab">
+    <div><strong>Receiver / Capacitor</strong><span>Usually the biggest damage change; can also switch a gun to automatic.</span></div>
+    <div><strong>Barrel</strong><span>Long = range/accuracy. Short/light = handling and often friendlier V.A.T.S. cost.</span></div>
+    <div><strong>Grip / Stock</strong><span>Controls recoil/handling and, on convertible weapons, whether pistol or rifle perks apply.</span></div>
+    <div><strong>Sight / Scope</strong><span>Reflex is easy general/V.A.T.S. use. Long/recon scopes are for deliberate sniping.</span></div>
+    <div><strong>Magazine</strong><span>Capacity vs reload speed. Quick-eject options are often a very comfortable middle ground.</span></div>
+    <div><strong>Muzzle</strong><span>Suppressor = stealth. Compensator/brake-style parts = recoil control when you do not care about noise.</span></div>
+  </div>
+  <div class="weapon-toolbar"><input id="weaponSearch" class="search" placeholder="Search 10mm, Gauss, suppressor, Kremvh, Nuka-World..." autocomplete="off"><span class="pill">Official DLC · no Creation Club</span></div>
+  <div id="weaponCategoryFilters" class="weapon-category-filters"></div>
+</div>
+<div class="weapon-lab-grid">
+  <div class="box weapon-picker-card"><h2>Weapon platform</h2><p class="top">Unique variants are searchable too. They normally point you to their parent weapon platform.</p><div id="weaponBtns" class="row weapon-picker"></div><h2 style="margin-top:16px">What are you building it for?</h2><div id="buildBtns" class="row weapon-goals"></div><p class="weapon-dlc-note">DLC weapons disappear from this picker when you untick that DLC at the top of the guide.</p></div>
+  <div class="box weapon-output-card"><h2>Workbench recommendation</h2><div id="weaponOut"></div></div>
 </div>
 </section>
 
-<div class="box card footer"><p class="small"><b>Current build:</b> individual base-game Main route steps + Prima-classified Side/Companion/Misc/Freeform/Faction jobs + Prima GOTY DLC quest checklist + companion intel + manual 84-achievement tracker + safety warnings. The Weapon Mod Lab remains the biggest deliberately-small prototype area.</p></div>
+<div class="box card footer"><p class="small"><b>Current build:</b> individual base-game Main route steps + Prima-classified Side/Companion/Misc/Freeform/Faction jobs + Prima GOTY DLC quest checklist + companion intel + manual 84-achievement tracker + safety warnings + S.P.E.C.I.A.L. Build Planner + expanded base-game/DLC Weapon Mod Lab.</p></div>
 </div>
 <script src="data-routes.js"></script>
 <script src="data-factions.js"></script>
@@ -164,6 +184,7 @@
 <script src="data-dlc.js"></script>
 <script src="route-prologue.js"></script>
 <script src="app.js"></script>
+<script src="weapon-lab.js"></script>
 <script src="guidebook.js"></script>
 <script src="dlc.js"></script>
 <script src="safety.js"></script>
